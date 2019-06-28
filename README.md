@@ -5,7 +5,7 @@ A lua script to debug/print net messages and console commands in Garry's Mod.
 This script prints net messages and ran console commands to your server's console to allow you to debug issues such as net exploits which are commonly abused if an addon is written poorly.
 
 ## How can I tell if there's an issue?
-Most of the time, if a player is attempting to run a net message crash exploit, it'll simply spam the vunverable net message which will be obvious in the console. 
+Most of the time, if a player is attempting to run a net message crash exploit, it'll simply spam the vulnerable net message which will be obvious in the console. 
 
 ## If I find a net message exploit, how can I fix it?
 Simply removing the addon or fixing the code will solve it. 
