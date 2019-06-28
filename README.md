@@ -10,6 +10,18 @@ Most of the time, if a player is attempting to run a net message crash exploit, 
 ## If I find a net message exploit, how can I fix it?
 Simply removing the addon or fixing the code will solve it. 
 
+## Example Output
+
+```
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/pulleywheels_large01.mdl 0.00 000000000. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 ) has executed this command: gmod_undo. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_building_details/Storefront_Template001a_Bars.mdl 0.00 000000000. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_borealis/bluebarrel001.mdl 0.00 000000000. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister01a.mdl 0.00 000000000. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister02a.mdl 0.00 000000000. 
+ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister_propane01a.mdl 0.00 000000000. 
+```
+
 ## Installation
 1. Download the `hexanenetlibrarydebug.lua` script.
 2. Add/upload it to your servers `garrysmod/lua/autorun/server` directory.
