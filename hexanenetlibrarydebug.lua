@@ -75,8 +75,6 @@ end
 
 hexanenetlibrarydebug.crun = hexanenetlibrarydebug.crun or concommand.Run
 
-if (hexanenetlibrarydebug.ConCommandLogger or true) then
-
 	function concommand.Run(ply, cmd, args)
 		if !IsValid(ply) then return hexanenetlibrarydebug.crun(ply,cmd,args) end
 		if !cmd then return hexanenetlibrarydebug.crun(ply,cmd,args) end
@@ -92,7 +90,5 @@ if (hexanenetlibrarydebug.ConCommandLogger or true) then
 		end
 		
 		return hexanenetlibrarydebug.crun(ply, cmd, args)
-
-	end
 	
 end
