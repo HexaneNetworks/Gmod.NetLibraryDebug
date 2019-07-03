@@ -26,3 +26,6 @@ ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this
 1. Download the `hexanenetlibrarydebug.lua` script.
 2. Add/upload it to your servers `garrysmod/lua/autorun/server` directory.
 3. Restart the server and you'll start to see the net messages appear. These are normal. Keep the script on the server and check back to your console when you believe one is being abused. 
+
+## Note
+Some DRM's included with addons (specifically with gmodstore scripts) won't work when this script is installed on your server. If you experience issues with a DRM conflicting with this script, you'll have to remove this script or temporary disable the addon with DRM. "Xeon" DRM commonly abruptly breaks with scripts like these. 
