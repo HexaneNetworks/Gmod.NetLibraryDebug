@@ -35,32 +35,15 @@ function net.Incoming(len, client)
 
 		len = len - 16
 		
-		if not table.HasValue(hexanenetlibrarydebug.net, name) then
-		
-			if (IsValid(client) and (client.LastMSG or 0) < CurTime() - 0.25) then
-				
-				ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) \n", name, i, len/8/1024, len/8, client:Nick(), client:SteamID()))
-				client.LastMSG = CurTime()
-				
-			elseif (client.LastMSG or 0) < CurTime() - 0.25 then
-				
-				ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) \n", name, i, len/8/1024, len/8, "UNKNOWN", "UNKNOWN"))
-			
-			end
-			
-		else
-		
-			if (IsValid(client) and (client.LastMSG or 0) < CurTime() - 0.25) then
-				
-				ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) [ Exploitable String ] \n", name, i, len/8/1024, len/8, client:Nick(), client:SteamID()))
-				client.LastMSG = CurTime()
+		if (IsValid(client) and (client.LastMSG or 0) < CurTime() - 0.25) then
 
-			elseif (client.LastMSG or 0) < CurTime() - 0.25 then
-				
-				ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) [ Exploitable String ] \n" , name, i, len/8/1024, len/8, "UNKNOWN", "UNKNOWN"))
-			
-			end
-		
+			ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) \n", name, i, len/8/1024, len/8, client:Nick(), client:SteamID()))
+			client.LastMSG = CurTime()
+
+		elseif (client.LastMSG or 0) < CurTime() - 0.25 then
+
+			ServerLog(string.format("Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) \n", name, i, len/8/1024, len/8, "UNKNOWN", "UNKNOWN"))
+
 		end
 		
 		status, error = pcall( function() func(len, client) end )
@@ -68,7 +51,7 @@ function net.Incoming(len, client)
 		if not status then
 			
 			
-			ServerLog(string.format("Error during net message (%s). Reasoning: %s \n", name, error))
+		ServerLog(string.format("Error during net message (%s). Reasoning: %s \n", name, error))
 
 	end
 end
