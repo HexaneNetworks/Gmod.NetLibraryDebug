@@ -34,7 +34,7 @@ function net.Incoming(len, client)
         antiNetSpam[plySteamid] =  antiNetSpam[plySteamid] or {}
         antiNetSpam[plySteamid][name] = (antiNetSpam[plySteamid][name] or 0) + 1
 
-        if antiNetSpam[plySteamid][name] > 10 then 
+        if antiNetSpam[plySteamid][name] > 10 and not hexanenetlibrarydebug.flaggedPlayers[plySteamid] then 
             hexanenetlibrarydebug.flaggedPlayers[plySteamid] = true
             ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) \n", name, client:Nick(), client:SteamID()))
 			return
