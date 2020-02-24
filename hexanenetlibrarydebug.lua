@@ -4,6 +4,14 @@
 
 hexanenetlibrarydebug = hexanenetlibrarydebug or {}
 
+hexanenetlibrarydebug.antiNetSpam = {}
+hexanenetlibrarydebug.flaggedPlayers = {}
+
+timer.Create("CleanNetSpam", 1,0, function()
+    hexanenetlibrarydebug.antiNetSpam = {}
+    hexanenetlibrarydebug.flaggedPlayers = {}
+end)
+
 function net.Incoming(len, client)
 		local i = net.ReadHeader()
 		local name = util.NetworkIDToString(i)
@@ -19,6 +27,20 @@ function net.Incoming(len, client)
 			return
 			
 		end
+
+        local plySteamid = client:SteamID()
+        --[[ Implement an anti-net spam feature to stop people from attempting to lag the server. ]]--
+
+        antiNetSpam[plySteamid] =  antiNetSpam[plySteamid] or {}
+        antiNetSpam[plySteamid][name] = (antiNetSpam[plySteamid][name] or 0) + 1
+
+        if antiNetSpam[plySteamid][name] > 10 then 
+            hexanenetlibrarydebug.flaggedPlayers[plySteamid] = true
+            ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) \n", name, client:Nick(), client:SteamID()))
+			return
+        end
+
+        --[[ Before the client is able to get a response from the target addon. ]]--
 
 		local func = net.Receivers[name:lower()]
 
