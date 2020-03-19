@@ -1,6 +1,6 @@
 -- Gmod Net Library Debug
 -- https://github.com/HexaneNetworks/gmod-netlibrary-debug
--- v2.1
+-- v2.2
 -- March 2020
 
 hexanenetlibrarydebug = hexanenetlibrarydebug or {}
@@ -10,6 +10,8 @@ hexanenetlibrarydebug.flaggedNetPlayers = {}
 
 hexanenetlibrarydebug.antiConSpam = {}
 hexanenetlibrarydebug.flaggedConPlayers = {}
+
+hexanenetlibrarydebug.threshold = 20
 
 hexanenetlibrarydebug.net = {
     "UKT_MOMOS", "Sandbox_ArmDupe", "Fix_Keypads", "memeDoor",
@@ -52,7 +54,7 @@ function net.Incoming(len, client)
     antiNetSpam[plySteamid] =  antiNetSpam[plySteamid] or {}
     antiNetSpam[plySteamid][name] = (antiNetSpam[plySteamid][name] or 0) + 1
 
-    if antiNetSpam[plySteamid][name] > 10 then 
+    if antiNetSpam[plySteamid][name] > hexanenetlibrarydebug.threshold  then 
 
         if not flaggedNetPlayers[plySteamid] then 
             ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) (IP: %s) \n", name, plyNick, plySteamid, plyIP))
