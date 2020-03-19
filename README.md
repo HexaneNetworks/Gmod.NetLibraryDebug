@@ -32,7 +32,7 @@ ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this
 ### Current Version: 2.1
 
 ### 2.1 (19 March 2020)
-- Added Player IP Loggng
+- Added Player IP Logging
 
 ### 2.0 (19 March 2020)
 - Complete Code Revamp
