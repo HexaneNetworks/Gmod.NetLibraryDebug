@@ -29,7 +29,10 @@ ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this
 
 ## Versions
 
-### Current Version: 2.1
+### Current Version: 2.2
+
+### 2.2 (19 March 2020)
+- Raised Threshold for antinetspam
 
 ### 2.1 (19 March 2020)
 - Added Player IP Logging
