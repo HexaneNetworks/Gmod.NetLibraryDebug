@@ -1,6 +1,6 @@
 -- Gmod Net Library Debug
 -- https://github.com/HexaneNetworks/gmod-netlibrary-debug
--- v2.1
+-- v2.0
 -- March 2020
 
 hexanenetlibrarydebug = hexanenetlibrarydebug or {}
@@ -42,9 +42,8 @@ function net.Incoming(len, client)
         return
     end
 
-    local plySteamid = IsValid(client) and client:SteamID() or "UNKNOWN STEAMID"
-    local plyNick = IsValid(client) and client:Nick() or "UNKNOWN PLAYER NAME"
-    local plyIP = IsValid(client) and client:IPAddress() or "UNKNOWN IP"
+    local plySteamid = IsValid(client) and client:SteamID() or "UNKNOWN"
+    local plyNick = IsValid(client) and client:Nick() or "UNKNOWN"
 
     local antiNetSpam = hexanenetlibrarydebug.antiNetSpam
     local flaggedNetPlayers = hexanenetlibrarydebug.flaggedNetPlayers
@@ -55,7 +54,7 @@ function net.Incoming(len, client)
     if antiNetSpam[plySteamid][name] > 10 then 
 
         if not flaggedNetPlayers[plySteamid] then 
-            ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) (IP: %s) \n", name, plyNick, plySteamid, plyIP))
+            ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) \n", name, plyNick, plySteamid))
         end
 
         flaggedNetPlayers[plySteamid] = true
@@ -64,15 +63,15 @@ function net.Incoming(len, client)
     local func = net.Receivers[name:lower()]
 
     if not func then
-        ServerLog(string.format("No receiving function for '%s' (net msg #%d) Client: %s (STEAMID: %s) (IP: %s) \n", name, i, plyNick, plySteamid, plyIP))
+        ServerLog(string.format("No receiving function for '%s' (net msg #%d) Client: %s (STEAMID: %s) \n", name, i, plyNick, plySteamid))
         return
     end
 
     len = len - 16
 
-    local curString = !table.HasValue(hexanenetlibrarydebug.net, name) and "Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) (IP: %s) \n" or "Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) (IP: %s) [ Exploitable String ] \n"
+    local curString = !table.HasValue(hexanenetlibrarydebug.net, name) and "Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) \n" or "Net message '%s' (%d) received (%.2fkb (%db)) Client: %s (STEAMID: %s) [ Exploitable String ] \n"
  
-    ServerLog(string.format(curString, name, i, len/8/1024, len/8, plyNick, plySteamid, plyIP))
+    ServerLog(string.format(curString, name, i, len/8/1024, len/8, plyNick, plySteamid))
 
     local status, error = pcall( function() func(len, client) end )
     
@@ -88,9 +87,8 @@ function concommand.Run(ply, cmd, args)
     if !IsValid(ply) then return hexanenetlibrarydebug.crun(ply,cmd,args) end
     if !cmd then return hexanenetlibrarydebug.crun(ply,cmd,args) end
     
-    local plySteamid = IsValid(ply) and ply:SteamID() or "UNKNOWN STEAMID"
-    local plyNick = IsValid(ply) and ply:Nick() or "UNKNOWN PLAYER NAME"
-    local plyIP = IsValid(ply) and ply:IPAddress() or "UNKNOWN IP"
+    local plySteamid = IsValid(ply) and ply:SteamID() or "UNKNOWN"
+    local plyNick = IsValid(ply) and ply:Nick() or "UNKNOWN"
 
     local antiConSpam = hexanenetlibrarydebug.antiConSpam
     local flaggedConPlayers = hexanenetlibrarydebug.flaggedConPlayers
@@ -103,14 +101,13 @@ function concommand.Run(ply, cmd, args)
     if antiConSpam[plySteamid][cmd] > 10 then 
         
         if not flaggedConPlayers[plySteamid] then 
-            ServerLog("Player " .. "'"..plyNick.."'" .. " ("..plySteamid.. ") " .. "("..plyIP..")" .. " has attempted to concommand spam with command: " .. cmd .. " args: " .. temp .. ". \n")
+            ServerLog(plyNick .. "( "..plySteamid.." )" .. " has attempted to concommand spam with command: " .. cmd .. " args: " .. temp .. ". \n")
         end
 
         flaggedConPlayers[plySteamid] = true
     end
 
-    ServerLog("Player " .. "'"..plyNick.."'" .. " ("..plySteamid.. ") " .. "("..plyIP..")" .. " has executed this command: " .. cmd .. " args: " .. temp .. ". \n")
-
+    ServerLog(plyNick .. "( "..plySteamid.." )" .. " has executed this command: " .. cmd .. " args: " .. temp .. ". \n")
 
     return hexanenetlibrarydebug.crun(ply, cmd, args)
 end
