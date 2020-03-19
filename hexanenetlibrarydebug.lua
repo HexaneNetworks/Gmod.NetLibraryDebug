@@ -47,7 +47,6 @@ function net.Incoming(len, client)
 
     local antiNetSpam = hexanenetlibrarydebug.antiNetSpam
     local flaggedNetPlayers = hexanenetlibrarydebug.flaggedNetPlayers
-    --[[ Implement an anti-net spam feature to stop people from attempting to lag the server. ]]--
 
     antiNetSpam[plySteamid] =  antiNetSpam[plySteamid] or {}
     antiNetSpam[plySteamid][name] = (antiNetSpam[plySteamid][name] or 0) + 1
@@ -60,8 +59,6 @@ function net.Incoming(len, client)
 
         flaggedNetPlayers[plySteamid] = true
     end
-
-    --[[ Before the client is able to get a response from the target addon. ]]--
 
     local func = net.Receivers[name:lower()]
 
