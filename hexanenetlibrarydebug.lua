@@ -11,6 +11,8 @@ hexanenetlibrarydebug.flaggedNetPlayers = {}
 hexanenetlibrarydebug.antiConSpam = {}
 hexanenetlibrarydebug.flaggedConPlayers = {}
 
+hexanenetlibrarydebug.threshold = 20
+
 hexanenetlibrarydebug.net = {
     "UKT_MOMOS", "Sandbox_ArmDupe", "Fix_Keypads", "memeDoor",
     "Remove_Exploiters", "noclipcloakaesp_chat_text", "fellosnake", "NoNerks",
@@ -52,7 +54,7 @@ function net.Incoming(len, client)
     antiNetSpam[plySteamid] =  antiNetSpam[plySteamid] or {}
     antiNetSpam[plySteamid][name] = (antiNetSpam[plySteamid][name] or 0) + 1
 
-    if antiNetSpam[plySteamid][name] > 10 then 
+    if antiNetSpam[plySteamid][name] > hexanenetlibrarydebug.threshold  then 
 
         if not flaggedNetPlayers[plySteamid] then 
             ServerLog(string.format("Net spam attempted on Net Message: %s Client: %s (STEAMID: %s) (IP: %s) \n", name, plyNick, plySteamid, plyIP))
