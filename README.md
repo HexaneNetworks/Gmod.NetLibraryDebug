@@ -27,5 +27,15 @@ ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this
 ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister_propane01a.mdl 0.00 000000000. 
 ```
 
+## Versions
+
+### Current Version: 2.0
+
+### 2.0 (19 March 2020)
+- Complete Code Revamp
+
+### 1.0 (28 June 2019)
+- Initial Release
+
 ## Note
 Some DRM's included with addons (specifically with gmodstore scripts) won't work when this script is installed on your server. If you experience issues with a DRM conflicting with this script, you'll have to remove this script or temporary disable the addon with DRM. "Xeon" DRM commonly abruptly breaks with scripts like these. 
