@@ -86,9 +86,9 @@ end
 
 hexanenetlibrarydebug.crun = hexanenetlibrarydebug.crun or concommand.Run
 
-function concommand.Run(ply, cmd, args)
-    if !IsValid(ply) then return hexanenetlibrarydebug.crun(ply,cmd,args) end
-    if !cmd then return hexanenetlibrarydebug.crun(ply,cmd,args) end
+function concommand.Run(ply, cmd, args, argStr)
+    if !IsValid(ply) then return hexanenetlibrarydebug.crun(ply,cmd,args,argStr) end
+    if !cmd then return hexanenetlibrarydebug.crun(ply,cmd,args,argStr) end
     
     local plySteamid = IsValid(ply) and ply:SteamID() or "UNKNOWN STEAMID"
     local plyNick = IsValid(ply) and ply:Nick() or "UNKNOWN PLAYER NAME"
@@ -114,5 +114,5 @@ function concommand.Run(ply, cmd, args)
     ServerLog("Player " .. "'"..plyNick.."'" .. " ("..plySteamid.. ") " .. "("..plyIP..")" .. " has executed this command: " .. cmd .. " args: " .. temp .. ". \n")
 
 
-    return hexanenetlibrarydebug.crun(ply, cmd, args)
+    return hexanenetlibrarydebug.crun(ply, cmd, args,argStr)
 end
