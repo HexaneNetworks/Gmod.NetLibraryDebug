@@ -18,18 +18,26 @@ Simply removing the addon or fixing the code will solve it.
 ## Example Output
 
 ```
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/pulleywheels_large01.mdl 0.00 000000000. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 ) has executed this command: gmod_undo. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_building_details/Storefront_Template001a_Bars.mdl 0.00 000000000. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_borealis/bluebarrel001.mdl 0.00 000000000. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister01a.mdl 0.00 000000000. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister02a.mdl 0.00 000000000. 
-ServerLog: Hyrogenic - hexanenetworks.com( STEAM_0:1:53406071 )has executed this command: gm_spawn models/props_c17/canister_propane01a.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gm_spawn args:  models/props_lab/filecabinet02.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gm_spawn args:  models/props_trainstation/clock01.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gm_spawn args:  models/props_trainstation/TrackSign02.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gm_spawn args:  models/props_junk/MetalBucket01a.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gm_spawn args:  models/props_interiors/ElevatorShaft_Door01a.mdl 0.00 000000000. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_undo args: None. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_tool args:  balloon. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_tool args:  button. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_tool args:  duplicator. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_tool args:  dynamite. 
+ServerLog: Player 'Hyro' (STEAM_0:1:53406071) (IP:27005) has executed this command: gmod_tool args:  emitter. 
+ServerLog: Net message 'properties' (3) received (0.01kb (15b)) Client: Hyro (STEAMID: STEAM_0:1:53406071)
 ```
 
 ## Versions
 
-### Current Version: 2.2
+### Current Version: 2.3
+
+### 2.3 (08 October 2020)
+- Pass the argument string (argStr)
 
 ### 2.2 (19 March 2020)
 - Raised Threshold for antinetspam
