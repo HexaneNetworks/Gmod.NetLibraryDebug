@@ -25,7 +25,7 @@ hexanenetlibrarydebug.net = {
     "disablebackdoor", "oldNetReadData", "SENDTEST", "Sandbox_GayParty",
     "nocheat", "_clientcvars", "_main", "ZimbaBackDoor", "stream", "waoz", "DarkRP_UTF8",
     "bdsm", "ZernaxBackdoor", "anticrash", "audisquad_lua", "dontforget", "noprop", "thereaper",
-    "0x13"
+    "0x13", "Foot"
 }
 
 timer.Create("hexanenetlibrarydebug.CleanSpam", 1,0, function()
