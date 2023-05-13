@@ -2,8 +2,8 @@
 A lua script to debug/print net messages and console commands in Garry's Mod. 
 
 ## Installation Instructions
-1. Download the `hexanenetlibrarydebug.lua` script.
-2. Add/upload it to your servers `garrysmod/lua/autorun/server` directory.
+1. Download the latest release from https://github.com/HexaneNetworks/Gmod.NetLibraryDebug/releases
+2. Extract the `Gmod.NetLibraryDebug` folder from the compressed file and upload it to your addons folder on your server.
 3. Restart the server and you'll start to see the net messages appear. These are normal. Keep the script on the server and check back to your console when you believe one is being abused. 
 
 ## What does this do?
@@ -34,7 +34,10 @@ ServerLog: Net message 'properties' (3) received (0.01kb (15b)) Client: Hyro (ST
 
 ## Versions
 
-### Current Version: 2.3
+### Current Version: 2.4
+
+### 2.4 (13 May 2023)
+- Updated the folder structure
 
 ### 2.3 (08 October 2020)
 - Pass the argument string (argStr)

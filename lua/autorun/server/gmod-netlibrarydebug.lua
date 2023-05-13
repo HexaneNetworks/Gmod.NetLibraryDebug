@@ -1,7 +1,7 @@
 -- Gmod Net Library Debug
--- https://github.com/HexaneNetworks/gmod-netlibrary-debug
--- v2.3
--- October 2020
+-- https://github.com/HexaneNetworks/Gmod.NetLibraryDebug
+-- v2.4
+-- May 2023
 
 hexanenetlibrarydebug = hexanenetlibrarydebug or {}
 
